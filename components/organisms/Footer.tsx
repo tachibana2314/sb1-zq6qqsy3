@@ -43,11 +43,11 @@ export function Footer() {
             <div className="mt-3 text-gray-400 text-xs space-y-1">
               <div className="flex items-start space-x-1.5">
                 <MapPin className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" />
-                <p>〒460-0017 名古屋市中区松原1-14-4 戸田ビル2F</p>
+                <p>〒815-0034 福岡県福岡市南区南大橋1丁目21-3</p>
               </div>
               <div className="flex items-center space-x-1.5">
                 <Phone className="w-3.5 h-3.5 flex-shrink-0" />
-                <p>052-265-8205</p>
+                <p>0930-35-1695</p>
               </div>
             </div>
           </div>

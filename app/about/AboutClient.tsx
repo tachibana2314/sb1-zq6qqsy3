@@ -4,16 +4,12 @@ import { motion } from "framer-motion";
 import { MapPin, Phone, Fan as Fax, Mail } from "lucide-react";
 
 const companyInfo = {
-  name: "TSUMUGITE株式会社",
+  name: "TSUMUGITE~紡ぎ手~",
   nameEn: "TSUMUGITE",
-  representative: "代表取締役：田中泰三",
-  postalCode: "〒 460-0017",
-  address: "名古屋市中区松原1-14-4 戸田ビル2F",
-  tel: "052-265-8205",
-  fax: "052-265-8232",
-  license: "許可番号：愛知県知事（般ー4）第75152号",
-  registration: "登録番号：一級 愛知県知事登録（い-4）第14099号",
-  manager: "管理建築士：窪野淳史",
+  postalCode: "〒 815-0034",
+  address: "福岡県福岡市南区南大橋1-21-3",
+  tel: "0930-35-1695",
+  fax: "0930-35-1695",
   services: [
     "事業内容：",
     "美容室や飲食店などの店舗設計・デザイン全般",
@@ -47,7 +43,6 @@ export function AboutClient() {
               <div className="space-y-2">
                 <h2 className="text-2xl font-light mb-4">{companyInfo.name}</h2>
                 <p className="text-gray-600">{companyInfo.nameEn}</p>
-                <p className="text-gray-600">{companyInfo.representative}</p>
               </div>
 
               <div className="space-y-4">
@@ -70,12 +65,6 @@ export function AboutClient() {
                 </div>
               </div>
 
-              <div className="space-y-2 text-sm text-gray-600">
-                <p>{companyInfo.license}</p>
-                <p>{companyInfo.registration}</p>
-                <p>{companyInfo.manager}</p>
-              </div>
-
               <div className="space-y-2">
                 <p className="font-medium">{companyInfo.services[0]}</p>
                 <ul className="list-disc list-inside space-y-1 text-gray-600">
@@ -94,7 +83,7 @@ export function AboutClient() {
               className="relative aspect-square lg:aspect-auto lg:h-[600px]"
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.744795332755!2d136.90442687677445!3d35.16501897315043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600376d92b5e3b1d%3A0x91b5bb5c8148e8f0!2z44CSNDYwLTAwMTcg5oSb55-l55yM5ZCN5Y-k5bGL5biC5Lit5Yy65p2-5Y6f77yR5LiB55uu77yR77yU4oiS77yU!5e0!3m2!1sja!2sjp!4v1710669144435!5m2!1sja!2sjp"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3325.0093982093135!2d130.42153207545343!3d33.553132143920244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354191190507eb6d%3A0x3b3867ae90900e81!2z44CSODE1LTAwMzQg56aP5bKh55yM56aP5bKh5biC5Y2X5Yy65Y2X5aSn5qmL77yR5LiB55uu77yS77yR4oiS77yT!5e0!3m2!1sja!2sjp!4v1740234329743!5m2!1sja!2sjp"
                 className="w-full h-full min-h-[400px] rounded-lg shadow-lg"
                 style={{ border: 0 }}
                 allowFullScreen

@@ -4,9 +4,10 @@ import { motion } from "framer-motion";
 import { ScrollIndicator } from "@/components/atoms/ScrollIndicator";
 
 const images = [
-  "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c", // モダンなリビング
-  "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3", // キッチン
-  "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4", // バスルーム
+  "/images/works/14/7.JPG",
+  "/images/works/14/1.JPG",
+  "/images/works/12/3.jpg",
+  "/images/works/16/8.jpg"
 ];
 
 export const Hero = () => {

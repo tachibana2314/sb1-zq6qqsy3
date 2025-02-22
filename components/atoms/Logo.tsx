@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Building2 } from "lucide-react";
+import Image from "next/image";
 
 export const Logo = () => {
   return (
@@ -10,10 +10,16 @@ export const Logo = () => {
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="flex items-center space-x-2"
+        className="relative"
       >
-        <Building2 className="w-5 h-5" />
-        <span className="text-base font-bold tracking-wider current-color">TSUMUGITE</span>
+        <Image
+          src="/logo/logo.png"
+          alt="TSUMUGITE"
+          width={160}
+          height={40}
+          className="w-[120px] md:w-[160px] h-auto"
+          priority
+        />
       </motion.div>
     </Link>
   );
