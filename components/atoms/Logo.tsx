@@ -15,9 +15,9 @@ export const Logo = () => {
         <Image
           src="/logo/logo.png"
           alt="TSUMUGITE"
-          width={140}
-          height={35}
-          className="w-[100px] md:w-[140px] h-auto"
+          width={120}
+          height={30}
+          className="w-[90px] md:w-[120px] h-auto"
           priority
         />
       </motion.div>
