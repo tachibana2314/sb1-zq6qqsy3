@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ScrollIndicator } from "@/components/atoms/ScrollIndicator";
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -17,6 +17,29 @@ const images = [
 export const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [animationComplete, setAnimationComplete] = useState(false);
+  const [viewportHeight, setViewportHeight] = useState(0);
+
+  // Set viewport height on mount and resize
+  useEffect(() => {
+    const updateViewportHeight = () => {
+      // Further increase height with additional 10px
+      const height = window.innerWidth > 768 
+        ? window.innerHeight * 0.95 + 10
+        : window.innerHeight * 0.9 + 10;
+      setViewportHeight(height);
+    };
+    
+    // Initial set
+    updateViewportHeight();
+    
+    // Update on resize
+    window.addEventListener('resize', updateViewportHeight);
+    
+    return () => {
+      window.removeEventListener('resize', updateViewportHeight);
+    };
+  }, []);
 
   // 画像のプリロードを改善
   useEffect(() => {
@@ -69,6 +92,17 @@ export const Hero = () => {
     return () => clearInterval(interval);
   }, [imagesLoaded]);
 
+  // アニメーション完了を追跡
+  useEffect(() => {
+    if (imagesLoaded) {
+      const timer = setTimeout(() => {
+        setAnimationComplete(true);
+      }, 2500); // ロゴとテキストのアニメーションが完了する時間
+      
+      return () => clearTimeout(timer);
+    }
+  }, [imagesLoaded]);
+
   if (!imagesLoaded) {
     return (
       <div className="h-screen relative overflow-hidden bg-gray-100 flex items-center justify-center">
@@ -78,39 +112,62 @@ export const Hero = () => {
   }
 
   return (
-    <div className="h-screen relative overflow-hidden">
-      {images.map((image, index) => (
-        <motion.div
-          key={image}
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: index === currentImageIndex ? 1 : 0 }}
-          transition={{ duration: 1.5 }}
-        >
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${image})` }}
-          />
-          <div className="absolute inset-0 bg-black/50" />
-        </motion.div>
-      ))}
+    <div 
+      className="relative overflow-hidden w-full" 
+      style={{ height: `${viewportHeight}px` }}
+      id="hero-section"
+    >
+      <AnimatePresence>
+        {images.map((image, index) => (
+          <motion.div
+            key={image}
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ 
+              opacity: index === currentImageIndex ? 1 : 0,
+              scale: index === currentImageIndex ? 1 : 1.1
+            }}
+            exit={{ opacity: 0 }}
+            transition={{ 
+              opacity: { duration: 1.8, ease: "easeInOut" },
+              scale: { duration: 8, ease: "easeInOut" }
+            }}
+          >
+            <div 
+              className="absolute inset-0 bg-black/50"
+              style={{ zIndex: 1 }}
+            />
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `url(${image})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center center',
+                transform: `scale(${index === currentImageIndex ? 1.05 : 1})`,
+                transition: 'transform 6s ease-in-out',
+                height: '100%',
+                width: '100%'
+              }}
+            />
+          </motion.div>
+        ))}
+      </AnimatePresence>
       
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-white">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="text-center px-4 flex flex-col items-center"
-        >
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-white px-4">
+        <div className="text-center flex flex-col items-center max-w-md mx-auto">
           <motion.div 
             className="mb-8 md:mb-10 w-[200px] md:w-[300px]"
             initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
+            animate={{ 
+              scale: 1, 
+              opacity: 1,
+              y: [20, 0]
+            }}
             transition={{ 
               type: "spring", 
               stiffness: 100, 
-              damping: 10,
-              delay: 0.7
+              damping: 15,
+              delay: 0.3
             }}
           >
             <Image
@@ -122,32 +179,67 @@ export const Hero = () => {
               priority
             />
           </motion.div>
-          <motion.p 
-            className="text-lg md:text-xl mb-2 md:mb-4 text-white font-medium"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.0 }}
+          
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.0, duration: 0.8 }}
           >
-            理想の暮らしをデザインする
-          </motion.p>
-          <motion.p 
-            className="text-base md:text-lg text-white"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.3 }}
-          >
-            新築・リフォーム・リノベーション
-          </motion.p>
-        </motion.div>
+            <motion.p 
+              className="text-lg md:text-xl mb-4 md:mb-6 text-white font-medium"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ 
+                opacity: 1, 
+                y: 0,
+              }}
+              transition={{ 
+                delay: 1.0,
+                duration: 0.8,
+                ease: "easeOut"
+              }}
+            >
+              理想の暮らしをデザインする
+            </motion.p>
+            
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
+              transition={{ delay: 1.4, duration: 1.2, ease: "easeInOut" }}
+              className="h-px bg-white/60 my-4 mx-auto max-w-[180px]"
+            />
+            
+            <motion.p 
+              className="text-base md:text-lg text-white/90"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                delay: 1.8,
+                duration: 0.8,
+                ease: "easeOut"
+              }}
+            >
+              新築・リフォーム・リノベーション
+            </motion.p>
+          </motion.div>
+        </div>
       </div>
       
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-      >
-        <ScrollIndicator />
-      </motion.div>
+      <AnimatePresence>
+        {animationComplete && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ 
+              duration: 0.8,
+              ease: "easeOut"
+            }}
+            className="z-20 relative"
+          >
+            <ScrollIndicator />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

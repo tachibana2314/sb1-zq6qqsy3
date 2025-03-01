@@ -11,45 +11,84 @@ export const ScrollIndicator = () => {
     });
   };
 
+  const pulseVariants = {
+    initial: { scale: 1, opacity: 0.7 },
+    animate: { 
+      scale: [1, 1.1, 1],
+      opacity: [0.7, 1, 0.7],
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        repeatType: "loop" as const,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  const arrowVariants = {
+    initial: { y: -5 },
+    animate: { 
+      y: [0, 10, 0],
+      transition: {
+        duration: 1.5,
+        repeat: Infinity,
+        repeatType: "loop" as const,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  const secondArrowVariants = {
+    initial: { y: -15, opacity: 0.3 },
+    animate: { 
+      y: [-5, 5, -5],
+      opacity: [0.3, 0.7, 0.3],
+      transition: {
+        duration: 1.5,
+        delay: 0.2,
+        repeat: Infinity,
+        repeatType: "loop" as const,
+        ease: "easeInOut"
+      }
+    }
+  };
+
   return (
-    <motion.div
-      initial={{ y: 0 }}
-      animate={{ y: [0, 10, 0] }}
-      transition={{ repeat: Infinity, duration: 2 }}
-      className="absolute bottom-[15%] md:bottom-[18%] left-1/2 -translate-x-1/2 text-center flex flex-col items-center cursor-pointer text-white"
-      onClick={scrollToNextSection}
-      whileHover={{ scale: 1.1 }}
-    >
-      <motion.p 
-        className="text-xs md:text-sm mb-1 md:mb-2 text-white"
-        initial={{ opacity: 0.7 }}
-        whileHover={{ opacity: 1 }}
-      >
-        Scroll
-      </motion.p>
+    <div className="absolute bottom-10 md:bottom-12 left-0 right-0 flex justify-center">
       <motion.div
-        initial={{ y: 0 }}
-        animate={{ y: [0, 5, 0] }}
-        transition={{ 
-          repeat: Infinity, 
-          duration: 1.5,
-          repeatType: "reverse" 
-        }}
+        className="flex flex-col items-center cursor-pointer"
+        onClick={scrollToNextSection}
+        variants={pulseVariants}
+        initial="initial"
+        animate="animate"
+        whileHover={{ scale: 1.15 }}
       >
-        <ChevronDown className="w-5 h-5 md:w-6 md:h-6 text-white" />
+        <motion.p 
+          className="text-xs md:text-sm mb-2 md:mb-3 text-white tracking-widest uppercase text-center"
+        >
+          Scroll
+        </motion.p>
+        
+        <div className="relative flex flex-col items-center justify-center h-10 w-6">
+          <motion.div
+            variants={arrowVariants}
+            initial="initial"
+            animate="animate"
+            className="absolute"
+          >
+            <ChevronDown className="w-5 h-5 md:w-6 md:h-6 text-white" />
+          </motion.div>
+          
+          <motion.div
+            variants={secondArrowVariants}
+            initial="initial"
+            animate="animate"
+            className="absolute"
+          >
+            <ChevronDown className="w-5 h-5 md:w-6 md:h-6 text-white" />
+          </motion.div>
+        </div>
       </motion.div>
-      <motion.div
-        initial={{ y: -5, opacity: 0.5 }}
-        animate={{ y: [0, 5, 0], opacity: [0.3, 0.7, 0.3] }}
-        transition={{ 
-          repeat: Infinity, 
-          duration: 1.5,
-          delay: 0.2,
-          repeatType: "reverse" 
-        }}
-      >
-        <ChevronDown className="w-5 h-5 md:w-6 md:h-6 -mt-3 text-white" />
-      </motion.div>
-    </motion.div>
+    </div>
   );
 };
