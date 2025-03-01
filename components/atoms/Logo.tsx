@@ -10,14 +10,14 @@ export const Logo = () => {
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="relative"
+        className="relative flex items-center"
       >
         <Image
           src="/logo/logo.png"
           alt="TSUMUGITE"
-          width={160}
-          height={40}
-          className="w-[120px] md:w-[160px] h-auto"
+          width={140}
+          height={35}
+          className="w-[100px] md:w-[140px] h-auto"
           priority
         />
       </motion.div>
