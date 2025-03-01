@@ -8,7 +8,6 @@ import { MapPin, Phone, Instagram, Facebook } from "lucide-react";
 const menuItems = [
   { href: "/about", label: "ABOUT" },
   { href: "/works", label: "WORKS" },
-  { href: "/service", label: "SERVICE" },
   { href: "/contact", label: "CONTACT" },
 ];
 
@@ -74,10 +73,8 @@ export function Footer() {
               <div>
                 <h3 className="text-xs font-medium mb-2">SERVICES</h3>
                 <ul className="space-y-1 text-gray-400 text-xs">
-                  <li>店舗設計・デザイン</li>
-                  <li>住宅の設計・施工</li>
-                  <li>オフィスの設計・施工</li>
-                  <li>空間デザイン</li>
+                  <li>店舗デザイン</li>
+                  <li>店舗施工</li>
                 </ul>
               </div>
             </nav>

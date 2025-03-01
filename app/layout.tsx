@@ -1,10 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import { Header } from '@/components/organisms/Header';
 import { Footer } from '@/components/organisms/Footer';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'TSUMUGITE',
@@ -18,9 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className={inter.className}>
+      <body className="font-meiryo">
         <Header />
-        <div className="pt-12 md:pt-14">
+        <div className="pt-24 md:pt-24">
           {children}
         </div>
         <Footer />

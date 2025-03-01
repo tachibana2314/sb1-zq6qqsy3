@@ -16,8 +16,6 @@ export interface Service {
 }
 
 export type ContactType = 
-  | "新築住宅について"
-  | "リフォーム・リノベーションについて"
   | "店舗・オフィスの設計について"
   | "その他";
 

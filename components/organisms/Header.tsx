@@ -9,7 +9,6 @@ import { Logo } from "@/components/atoms/Logo";
 const menuItems = [
   { href: "/about", label: "ABOUT" },
   { href: "/works", label: "WORKS" },
-  { href: "/service", label: "SERVICE" },
   { href: "/contact", label: "CONTACT" },
 ];
 
@@ -31,18 +30,18 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className={`relative z-50 ${isOpen ? 'bg-transparent' : 'bg-white/80 backdrop-blur-md'}`}>
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16 md:h-20">
-            <div className={isOpen ? 'text-white' : 'text-black'}>
+          <div className="flex items-center justify-between h-24 md:h-24">
+            <div className={`${isOpen ? 'text-white' : 'text-black'} px-0 md:px-2 pt-4 md:pt-6`}>
               <Logo />
             </div>
 
             {/* Desktop Menu */}
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden md:flex items-center space-x-8 pt-4 md:pt-6">
               {menuItems.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-gray-600 hover:text-gray-900 transition-colors text-sm"
+                  className="text-gray-600 hover:text-gray-900 transition-colors text-sm py-2"
                 >
                   {item.label}
                 </Link>
@@ -51,7 +50,7 @@ export function Header() {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-1 z-50"
+              className="md:hidden p-1 z-50 pt-4"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="メニューを開く"
             >

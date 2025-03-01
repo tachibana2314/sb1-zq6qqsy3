@@ -17,8 +17,6 @@ import { Label } from "@/components/ui/label";
 import { ContactForm, ContactType } from "@/types";
 
 const contactTypes: ContactType[] = [
-  "新築住宅について",
-  "リフォーム・リノベーションについて",
   "店舗・オフィスの設計について",
   "その他"
 ];
@@ -29,8 +27,6 @@ const formSchema = z.object({
   email: z.string().email("正しいメールアドレスを入力してください"),
   phone: z.string().min(1, "電話番号を入力してください"),
   type: z.enum([
-    "新築住宅について",
-    "リフォーム・リノベーションについて",
     "店舗・オフィスの設計について",
     "その他"
   ] as const),

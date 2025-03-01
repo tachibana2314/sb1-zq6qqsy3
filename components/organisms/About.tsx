@@ -16,7 +16,7 @@ export const About = () => {
           className="max-w-6xl mx-auto"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-            <div className="h-full bg-white rounded-lg shadow-sm p-12 flex items-center justify-center">
+            {/* <div className="h-full bg-white rounded-lg shadow-sm p-12 flex items-center justify-center">
               <Image
                 src="/logo/logo.png"
                 alt="TSUMUGITE"
@@ -25,21 +25,23 @@ export const About = () => {
                 className="w-full max-w-md h-auto"
                 priority
               />
-            </div>
+            </div> */}
             
             <div className="flex flex-col justify-center">
               <div className="space-y-6">
                 <h2 className="text-4xl md:text-5xl font-light">ABOUT</h2>
                 <div className="space-y-4 text-gray-600">
                   <p className="text-lg">
-                    私たちTSUMUGITEは、名古屋を拠点に活動する建築デザイン事務所です。
+                    「TSUMUGITE」は、福岡を中心に店舗デザイン・店舗施工を一貫して手掛けています。
                   </p>
                   <p>
-                    住宅、店舗、オフィスなど、さまざまな空間デザインを手がけています。
-                    クライアントの想いに寄り添い、機能性と美しさを兼ね備えた空間を創造することを大切にしています。
+                    ジャンル・業種問わず、<br />
+                    ・お客様のコンセプトに合わせた空間づくり<br />
+                    ・コストを抑えながらもオーナーの想いが詰まった空間づくり<br />
                   </p>
                   <p>
-                    デザインを通じて、人々の暮らしや働く場所をより豊かにすることが私たちの使命です。
+                    を提案いたします。<br />
+                    デザインから施工、アフターフォローまで一貫して対応しているので、安心してお店作りをお任せください。
                   </p>
                 </div>
                 <Link 

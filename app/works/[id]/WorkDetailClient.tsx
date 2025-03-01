@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Project } from "@/types";
 import useEmblaCarousel from 'embla-carousel-react';
-import { useCallback } from "react";
+import { useCallback, useState, useEffect } from "react";
 
 interface WorkDetailClientProps {
   project: Project;
@@ -14,6 +14,7 @@ interface WorkDetailClientProps {
 
 export function WorkDetailClient({ project }: WorkDetailClientProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -21,6 +22,32 @@ export function WorkDetailClient({ project }: WorkDetailClientProps) {
 
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  const scrollTo = useCallback(
+    (index: number) => {
+      if (emblaApi) emblaApi.scrollTo(index);
+    },
+    [emblaApi]
+  );
+
+  // Use useEffect to register the onSelect event handler
+  useEffect(() => {
+    if (!emblaApi) return;
+    
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    };
+    
+    // Register the event handler
+    emblaApi.on('select', onSelect);
+    // Initial call to set the initial selected index
+    onSelect();
+    
+    // Cleanup function to remove the event handler
+    return () => {
+      emblaApi.off('select', onSelect);
+    };
   }, [emblaApi]);
 
   return (
@@ -45,15 +72,12 @@ export function WorkDetailClient({ project }: WorkDetailClientProps) {
               <h1 className="text-3xl md:text-4xl font-light mb-4 md:mb-6">{project.title}</h1>
               <div className="space-y-3 md:space-y-4 text-gray-600">
                 <p className="flex items-center">
-                  <span className="font-medium w-20 md:w-24">場所：</span>
                   <span>{project.location}</span>
                 </p>
                 <p className="flex items-center">
-                  <span className="font-medium w-20 md:w-24">完工：</span>
                   <span>{project.date}</span>
                 </p>
                 <p className="flex items-center">
-                  <span className="font-medium w-20 md:w-24">カテゴリー：</span>
                   <span>{project.category}</span>
                 </p>
                 <p className="mt-6 md:mt-8 leading-relaxed">{project.description}</p>
@@ -107,6 +131,34 @@ export function WorkDetailClient({ project }: WorkDetailClientProps) {
               <ChevronRight className="w-6 h-6" />
             </button>
           </div>
+
+          {/* サムネイル画像ギャラリー */}
+          {project.images && project.images.length > 0 && (
+            <div className="mt-4 md:mt-6">
+              <div className="grid grid-cols-5 md:grid-cols-8 gap-2 md:gap-3">
+                {project.images.map((image, index) => (
+                  <button
+                    key={index}
+                    onClick={() => scrollTo(index)}
+                    className={`relative aspect-[4/3] overflow-hidden rounded-md transition-all ${
+                      selectedIndex === index 
+                        ? 'ring-2 ring-gray-900 ring-offset-2' 
+                        : 'opacity-70 hover:opacity-100'
+                    }`}
+                    aria-label={`画像 ${index + 1} を表示`}
+                  >
+                    <Image
+                      src={image}
+                      alt={`${project.title} - Thumbnail ${index + 1}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 20vw, 12.5vw"
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
         </motion.div>
       </div>
     </main>

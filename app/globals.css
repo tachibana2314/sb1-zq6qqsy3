@@ -79,4 +79,20 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  @font-face {
+    font-family: 'Meiryo';
+    src: local('Meiryo'), local('メイリオ');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Meiryo';
+    src: local('Meiryo Bold'), local('メイリオ Bold');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
 }
