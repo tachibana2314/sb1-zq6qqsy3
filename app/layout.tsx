@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="ja">
       <body className="font-meiryo">
         <Header />
-        <div className="pt-24 md:pt-24">
+        <div className="pt-16 md:pt-16">
           {children}
         </div>
         <Footer />
