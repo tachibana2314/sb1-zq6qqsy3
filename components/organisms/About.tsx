@@ -15,19 +15,9 @@ export const About = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-            {/* <div className="h-full bg-white rounded-lg shadow-sm p-12 flex items-center justify-center">
-              <Image
-                src="/logo/logo.png"
-                alt="TSUMUGITE"
-                width={400}
-                height={100}
-                className="w-full max-w-md h-auto"
-                priority
-              />
-            </div> */}
-            
-            <div className="flex flex-col justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+            {/* Text Content - On top for mobile, on top for desktop */}
+            <div className="flex flex-col justify-center order-1 md:order-1">
               <div className="space-y-6">
                 <h2 className="text-4xl md:text-5xl font-light">ABOUT</h2>
                 <div className="space-y-4 text-gray-600">
@@ -44,15 +34,48 @@ export const About = () => {
                     デザインから施工、アフターフォローまで一貫して対応しているので、安心してお店作りをお任せください。
                   </p>
                 </div>
-                <Link 
-                  href="/about"
-                  className="inline-flex items-center text-gray-900 hover:text-gray-600 transition-colors group"
-                >
-                  <span className="border-b border-gray-900 group-hover:border-gray-600">詳しく見る</span>
-                  <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                </Link>
+                <div className="hidden md:block">
+                  <Link 
+                    href="/about"
+                    className="inline-flex items-center text-gray-900 hover:text-gray-600 transition-colors group"
+                  >
+                    <span className="border-b border-gray-900 group-hover:border-gray-600">詳しく見る</span>
+                    <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
               </div>
             </div>
+            
+            {/* Image - Below text for mobile, below text for desktop */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="order-2 md:order-2"
+            >
+              <div className="relative aspect-[4/3] bg-white rounded-lg shadow-sm overflow-hidden">
+                <Image
+                  src="/images/about.jpg"
+                  alt="TSUMUGITE"
+                  fill
+                  className="object-cover transition-transform duration-500 hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                />
+              </div>
+            </motion.div>
+          </div>
+          
+          {/* Mobile-only "See More" link that appears below the image */}
+          <div className="mt-8 text-center md:hidden">
+            <Link 
+              href="/about"
+              className="inline-flex items-center text-gray-900 hover:text-gray-600 transition-colors group"
+            >
+              <span className="border-b border-gray-900 group-hover:border-gray-600">詳しく見る</span>
+              <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
         </motion.div>
       </div>

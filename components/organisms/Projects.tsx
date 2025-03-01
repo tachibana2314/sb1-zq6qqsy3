@@ -6,11 +6,27 @@ import { Project } from "@/types";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { projects } from "@/lib/data";
+import { useEffect, useState } from "react";
 
 // 最新の12つのプロジェクトを表示 (4列×3行)
 const selectedProjects = projects.slice(0, 12);
 
 export const Projects = () => {
+  const [visibleProjects, setVisibleProjects] = useState<Project[]>([]);
+
+  // Progressive loading of projects
+  useEffect(() => {
+    // Load first 4 projects immediately
+    setVisibleProjects(selectedProjects.slice(0, 4));
+    
+    // Load the rest with a slight delay
+    const timer = setTimeout(() => {
+      setVisibleProjects(selectedProjects);
+    }, 300);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="py-24 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -24,7 +40,7 @@ export const Projects = () => {
           <p className="text-gray-600">これまでに手がけた住まいづくりの事例をご紹介します</p>
         </motion.div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-          {selectedProjects.map((project) => (
+          {visibleProjects.map((project) => (
             <Link href={`/works/${project.id}`} key={project.id} className="block">
               <ProjectCard project={project} showDetails={true} />
             </Link>

@@ -30,13 +30,13 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className={`relative z-50 ${isOpen ? 'bg-transparent' : 'bg-white/80 backdrop-blur-md'}`}>
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-24 md:h-24">
-            <div className={`${isOpen ? 'text-white' : 'text-black'} px-0 md:px-2 pt-4 md:pt-6`}>
+          <div className="flex items-center justify-between h-20 md:h-20">
+            <div className={`${isOpen ? 'text-white' : 'text-black'} flex items-center h-full`}>
               <Logo />
             </div>
 
             {/* Desktop Menu */}
-            <nav className="hidden md:flex items-center space-x-8 pt-4 md:pt-6">
+            <nav className="hidden md:flex items-center space-x-8">
               {menuItems.map((item) => (
                 <Link
                   key={item.label}
@@ -50,7 +50,7 @@ export function Header() {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-1 z-50 pt-4"
+              className="md:hidden p-1 z-50 flex items-center"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="メニューを開く"
             >

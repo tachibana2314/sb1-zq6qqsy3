@@ -15,6 +15,7 @@ interface WorkDetailClientProps {
 export function WorkDetailClient({ project }: WorkDetailClientProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState<Record<number, boolean>>({});
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -30,6 +31,11 @@ export function WorkDetailClient({ project }: WorkDetailClientProps) {
     },
     [emblaApi]
   );
+
+  // Track image loading
+  const handleImageLoad = (index: number) => {
+    setImagesLoaded(prev => ({ ...prev, [index]: true }));
+  };
 
   // Use useEffect to register the onSelect event handler
   useEffect(() => {
@@ -83,7 +89,7 @@ export function WorkDetailClient({ project }: WorkDetailClientProps) {
                 <p className="mt-6 md:mt-8 leading-relaxed">{project.description}</p>
               </div>
             </div>
-            <div className="relative aspect-[4/3] order-1 md:order-2">
+            <div className="relative aspect-[4/3] order-1 md:order-2 bg-gray-100">
               <Image
                 src={project.imageUrl}
                 alt={project.title}
@@ -96,41 +102,47 @@ export function WorkDetailClient({ project }: WorkDetailClientProps) {
           </div>
 
           {/* 画像スライダー */}
-          <div className="relative -mx-4 md:mx-0">
-            <div className="overflow-hidden md:rounded-lg" ref={emblaRef}>
-              <div className="flex">
-                {project.images?.map((image, index) => (
-                  <div key={index} className="relative flex-[0_0_100%] min-w-0 px-4 md:px-0">
-                    <div className="relative aspect-[4/3] md:aspect-[16/9]">
-                      <Image
-                        src={image}
-                        alt={`${project.title} - Image ${index + 1}`}
-                        fill
-                        className="object-cover md:rounded-lg"
-                        sizes="100vw"
-                      />
+          {project.images && project.images.length > 0 && (
+            <div className="relative -mx-4 md:mx-0">
+              <div className="overflow-hidden md:rounded-lg" ref={emblaRef}>
+                <div className="flex">
+                  {project.images.map((image, index) => (
+                    <div key={index} className="relative flex-[0_0_100%] min-w-0 px-4 md:px-0">
+                      <div className="relative aspect-[4/3] md:aspect-[16/9] bg-gray-100">
+                        <Image
+                          src={image}
+                          alt={`${project.title} - Image ${index + 1}`}
+                          fill
+                          className={`object-cover md:rounded-lg transition-opacity duration-300 ${
+                            imagesLoaded[index] ? 'opacity-100' : 'opacity-0'
+                          }`}
+                          sizes="100vw"
+                          loading="lazy"
+                          onLoad={() => handleImageLoad(index)}
+                        />
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
+              
+              {/* ナビゲーションボタン */}
+              <button
+                onClick={scrollPrev}
+                className="absolute left-6 md:left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all z-10"
+                aria-label="前の画像"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              <button
+                onClick={scrollNext}
+                className="absolute right-6 md:right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all z-10"
+                aria-label="次の画像"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
             </div>
-            
-            {/* ナビゲーションボタン */}
-            <button
-              onClick={scrollPrev}
-              className="absolute left-6 md:left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all z-10"
-              aria-label="前の画像"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              onClick={scrollNext}
-              className="absolute right-6 md:right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all z-10"
-              aria-label="次の画像"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-          </div>
+          )}
 
           {/* サムネイル画像ギャラリー */}
           {project.images && project.images.length > 0 && (
@@ -140,7 +152,7 @@ export function WorkDetailClient({ project }: WorkDetailClientProps) {
                   <button
                     key={index}
                     onClick={() => scrollTo(index)}
-                    className={`relative aspect-[4/3] overflow-hidden rounded-md transition-all ${
+                    className={`relative aspect-[4/3] overflow-hidden rounded-md transition-all bg-gray-100 ${
                       selectedIndex === index 
                         ? 'ring-2 ring-gray-900 ring-offset-2' 
                         : 'opacity-70 hover:opacity-100'
@@ -153,6 +165,7 @@ export function WorkDetailClient({ project }: WorkDetailClientProps) {
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 20vw, 12.5vw"
+                      loading="lazy"
                     />
                   </button>
                 ))}
