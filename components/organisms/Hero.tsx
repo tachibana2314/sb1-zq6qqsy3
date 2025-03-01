@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 import { ScrollIndicator } from "@/components/atoms/ScrollIndicator";
 
 const images = [
-  "/images/works/14/7.JPG",
-  "/images/works/14/1.JPG",
-  "/images/works/12/3.jpg",
-  "/images/works/16/8.jpg"
+  "/images/hero/1.jpeg",
+  "/images/hero/2.jpeg",
+  "/images/hero/3.jpeg",
+  "/images/hero/4.jpeg",
+  "/images/hero/5.jpeg",
 ];
 
 export const Hero = () => {
