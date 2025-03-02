@@ -7,11 +7,11 @@ import Image from "next/image";
 
 // 確実に存在する画像パスを使用
 const images = [
-  "/images/hero/1.jpeg",
-  "/images/hero/2.jpeg",
-  "/images/hero/3.jpeg",
-  "/images/hero/4.jpeg",
-  "/images/hero/5.jpeg",
+  "/images/hero/1.webp",
+  "/images/hero/2.webp",
+  "/images/hero/3.webp",
+  "/images/hero/4.webp",
+  "/images/hero/5.webp",
 ];
 
 export const Hero = () => {
