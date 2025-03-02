@@ -14,8 +14,8 @@ export const metadata: Metadata = {
 
 export default function About() {
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'ホーム', url: 'https://tsumugite.com' },
-    { name: '会社概要', url: 'https://tsumugite.com/about' }
+    { name: 'ホーム', url: 'https://tsumugite-naisoudesign.com' },
+    { name: '会社概要', url: 'https://tsumugite-naisoudesign.com/about' }
   ]);
 
   const localBusinessSchema = generateLocalBusinessSchema();

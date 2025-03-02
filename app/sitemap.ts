@@ -2,7 +2,7 @@ import { projects } from "@/lib/data";
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://tsumugite.com";
+  const baseUrl = "https://tsumugite-naisoudesign.com";
   
   // Base pages
   const routes = [

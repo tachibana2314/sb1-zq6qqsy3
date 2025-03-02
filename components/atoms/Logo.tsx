@@ -17,7 +17,7 @@ export const Logo = () => {
           alt="TSUMUGITE"
           width={120}
           height={30}
-          className="w-[90px] md:w-[120px] h-auto"
+          className="w-[90px] md:w-[120px] h-auto p-4"
           priority
         />
       </motion.div>

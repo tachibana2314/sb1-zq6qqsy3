@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://tsumugite.com/sitemap.xml",
+    sitemap: "https://tsumugite-naisoudesign.com/sitemap.xml",
   };
 }

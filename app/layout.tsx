@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'ja_JP',
-    url: 'https://tsumugite.com',
+    url: 'https://tsumugite-naisoudesign.com',
     title: 'TSUMUGITE | 福岡の店舗デザイン・店舗施工',
     description: '福岡を中心に店舗デザイン・店舗施工を一貫して手掛けるTSUMUGITE。飲食店、美容室、アパレル、オフィスなど、ジャンル・業種問わず、お客様のコンセプトに合わせた空間づくりを提案します。',
     siteName: 'TSUMUGITE',
     images: [
       {
-        url: 'https://tsumugite.com/logo/logo.png',
+        url: 'https://tsumugite-naisoudesign.com/logo/logo.png',
         width: 1200,
         height: 630,
         alt: 'TSUMUGITE',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'TSUMUGITE | 福岡の店舗デザイン・店舗施工',
     description: '福岡を中心に店舗デザイン・店舗施工を一貫して手掛けるTSUMUGITE。飲食店、美容室、アパレル、オフィスなど、ジャンル・業種問わず、お客様のコンセプトに合わせた空間づくりを提案します。',
-    images: ['https://tsumugite.com/logo/logo.png'],
+    images: ['https://tsumugite-naisoudesign.com/logo/logo.png'],
   },
 };
 
@@ -48,7 +48,7 @@ export default function RootLayout({
     <html lang="ja">
       <head>
         <meta name="format-detection" content="telephone=no" />
-        <link rel="canonical" href="https://tsumugite.com" />
+        <link rel="canonical" href="https://tsumugite-naisoudesign.com" />
         <SchemaOrg schema={combinedSchema} />
       </head>
       <body className="font-meiryo">

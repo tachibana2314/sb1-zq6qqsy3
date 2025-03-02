@@ -22,20 +22,12 @@ export function Footer() {
               <Logo />
               <div className="flex space-x-3 md:space-x-4">
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/tsumugite_/#"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   <Instagram className="w-4 h-4" />
-                </a>
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  <Facebook className="w-4 h-4" />
                 </a>
               </div>
             </div>

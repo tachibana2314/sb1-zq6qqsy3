@@ -46,7 +46,17 @@ export function Header() {
                   {item.label}
                 </Link>
               ))}
+              <a
+                href="https://www.instagram.com/tsumugite_/#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-gray-900 transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
             </nav>
+            
 
             {/* Mobile Menu Button */}
             <button
@@ -97,10 +107,10 @@ export function Header() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: menuItems.length * 0.1 }}
-                className="absolute bottom-12 left-0 right-0 text-center"
+                className="mb-12 pt-12"
               >
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/tsumugite_/#"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-white/80 hover:text-white transition-colors"

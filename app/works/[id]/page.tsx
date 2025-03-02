@@ -48,9 +48,9 @@ export default function WorkDetail({ params }: { params: { id: string } }) {
 
   const projectSchema = generateProjectSchema(project);
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'ホーム', url: 'https://tsumugite.com' },
-    { name: '施工事例', url: 'https://tsumugite.com/works' },
-    { name: project.title, url: `https://tsumugite.com/works/${project.id}` }
+    { name: 'ホーム', url: 'https://tsumugite-naisoudesign.com' },
+    { name: '施工事例', url: 'https://tsumugite-naisoudesign.com/works' },
+    { name: project.title, url: `https://tsumugite-naisoudesign.com/works/${project.id}` }
   ]);
 
   return (

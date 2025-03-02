@@ -7,8 +7,8 @@ export const generateOrganizationSchema = () => {
     "@type": "HomeAndConstructionBusiness",
     "name": "TSUMUGITE~紡ぎ手~",
     "alternateName": "TSUMUGITE",
-    "url": "https://tsumugite.com",
-    "logo": "https://tsumugite.com/logo/logo.png",
+    "url": "https://tsumugite-naisoudesign.com",
+    "logo": "https://tsumugite-naisoudesign.com/logo/logo.png",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "福岡市南区",
@@ -18,7 +18,7 @@ export const generateOrganizationSchema = () => {
       "addressCountry": "JP"
     },
     "telephone": "0930-35-1695",
-    "email": "info@tsumugite.com",
+    "email": "info@tsumugite-naisoudesign.com",
     "description": "理想の暮らしをデザインする。新築・リフォーム・リノベーション",
     "sameAs": [
       "https://instagram.com/tsumugite",
@@ -79,7 +79,7 @@ export const generateLocalBusinessSchema = () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "TSUMUGITE~紡ぎ手~",
-    "image": "https://tsumugite.com/logo/logo.png",
+    "image": "https://tsumugite-naisoudesign.com/logo/logo.png",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "南大橋1-21-3",
@@ -93,7 +93,7 @@ export const generateLocalBusinessSchema = () => {
       "latitude": 33.5531321,
       "longitude": 130.4215321
     },
-    "url": "https://tsumugite.com",
+    "url": "https://tsumugite-naisoudesign.com",
     "telephone": "0930-35-1695",
     "openingHoursSpecification": [
       {
@@ -157,10 +157,10 @@ export const generateWebsiteSchema = () => {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "TSUMUGITE~紡ぎ手~",
-    "url": "https://tsumugite.com",
+    "url": "https://tsumugite-naisoudesign.com",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://tsumugite.com/search?q={search_term_string}",
+      "target": "https://tsumugite-naisoudesign.com/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   };

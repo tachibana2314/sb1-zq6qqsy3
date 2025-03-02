@@ -14,8 +14,8 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'ホーム', url: 'https://tsumugite.com' },
-    { name: 'お問い合わせ', url: 'https://tsumugite.com/contact' }
+    { name: 'ホーム', url: 'https://tsumugite-naisoudesign.com' },
+    { name: 'お問い合わせ', url: 'https://tsumugite-naisoudesign.com/contact' }
   ]);
 
   return (
