@@ -21,8 +21,7 @@ export const generateOrganizationSchema = () => {
     "email": "info@tsumugite-naisoudesign.com",
     "description": "理想の暮らしをデザインする。新築・リフォーム・リノベーション",
     "sameAs": [
-      "https://instagram.com/tsumugite",
-      "https://facebook.com/tsumugite"
+      "https://www.instagram.com/tsumugite_/#"
     ],
     "openingHours": "Mo,Tu,We,Th,Fr 09:00-18:00",
     "priceRange": "¥¥¥",

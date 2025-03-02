@@ -21,7 +21,7 @@ export const Logo = ({ color = "dark" }: LogoProps) => {
           alt="TSUMUGITE"
           width={120}
           height={30}
-          className={`w-[90px] md:w-[120px] h-auto ${color === "light" ? "brightness-0 invert" : ""}`}
+          className={`p-4 w-[90px] md:w-[120px] h-auto ${color === "light" ? "brightness-0 invert" : ""}`}
           priority
         />
       </motion.div>

@@ -29,7 +29,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'TSUMUGITE | 福岡の店舗デザイン・店舗施工',
     description: '福岡を中心に店舗デザイン・店舗施工を一貫して手掛けるTSUMUGITE。飲食店、美容室、アパレル、オフィスなど、ジャンル・業種問わず、お客様のコンセプトに合わせた空間づくりを提案します。',
-    images: ['https://tsumugite-naisoudesign.com/logo/logo.png'],
+    images: ['https://tsumugite.com/logo/logo.png'],
+    creator: '@tsumugite',
+    site: '@tsumugite'
   },
 };
 

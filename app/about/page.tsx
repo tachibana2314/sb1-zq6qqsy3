@@ -9,8 +9,23 @@ export const metadata: Metadata = {
   openGraph: {
     title: '会社概要 | TSUMUGITE',
     description: 'TSUMUGITEは福岡を中心に店舗デザイン・店舗施工を一貫して手掛けています。ジャンル・業種問わず、お客様のコンセプトに合わせた空間づくりを提案いたします。',
+    images: [
+      {
+        url: 'https://tsumugite-naisoudesign.com/logo/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'TSUMUGITE 会社概要',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '会社概要 | TSUMUGITE',
+    description: 'TSUMUGITEは福岡を中心に店舗デザイン・店舗施工を一貫して手掛けています。ジャンル・業種問わず、お客様のコンセプトに合わせた空間づくりを提案いたします。',
+    images: ['https://tsumugite-naisoudesign.com/logo/logo.png'],
   }
 };
+
 
 export default function About() {
   const breadcrumbSchema = generateBreadcrumbSchema([
