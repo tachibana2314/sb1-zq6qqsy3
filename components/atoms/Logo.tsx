@@ -4,7 +4,11 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
-export const Logo = () => {
+interface LogoProps {
+  color?: "dark" | "light";
+}
+
+export const Logo = ({ color = "dark" }: LogoProps) => {
   return (
     <Link href="/">
       <motion.div 
@@ -17,7 +21,7 @@ export const Logo = () => {
           alt="TSUMUGITE"
           width={120}
           height={30}
-          className="w-[90px] md:w-[120px] h-auto p-4"
+          className={`w-[90px] md:w-[120px] h-auto ${color === "light" ? "brightness-0 invert" : ""}`}
           priority
         />
       </motion.div>

@@ -19,7 +19,7 @@ export function Footer() {
           {/* Company Info */}
           <div className="w-full md:w-auto">
             <div className="flex items-center justify-between md:justify-start md:space-x-8">
-              <Logo />
+              <Logo color="light" />
               <div className="flex space-x-3 md:space-x-4">
                 <a
                   href="https://www.instagram.com/tsumugite_/#"
