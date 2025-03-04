@@ -22,15 +22,17 @@ export const About = () => {
                 <h2 className="text-4xl md:text-5xl font-light">ABOUT</h2>
                 <div className="space-y-4 text-gray-600">
                   <p className="text-lg">
-                    「TSUMUGITE」は、福岡を中心に店舗デザイン・店舗施工を一貫して手掛けています。
+                  「TSUMUGITE」は、福岡を中心に店舗デザイン・店舗施工を一貫して手掛けています。
                   </p>
-                  <p>
-                    ジャンル・業種問わず、<br />
-                    ・お客様のコンセプトに合わせた空間づくり<br />
-                    ・コストを抑えながらもオーナーの想いが詰まった空間づくり<br />
+                  <p className="text-lg">
+                  「お客様のコンセプト,売り方,ご予算,エンドユーザーに合わせた箱づくり」
+                   「主役である&quot;売り物&quot;」<br />
+                   「お店に立つスタッフさん」を影で引立たせる店づくり」<br />
+                   を提案いたします。<br />
+                   デザインから施工、アフターフォローまで対応しているので、<br />
+                   頼んでいただいた折には箱に携わる全てをご相談下さい。<br />
                   </p>
-                  <p>
-                    を提案いたします。<br />
+                  <p className="text-lg">
                     デザインから施工、アフターフォローまで一貫して対応しているので、安心してお店作りをお任せください。
                   </p>
                 </div>
@@ -56,11 +58,11 @@ export const About = () => {
             >
               <div className="relative aspect-[4/3] bg-white rounded-lg shadow-sm overflow-hidden">
                 <Image
-                  src="/images/about.jpg"
+                  src="/logo/logo.png"
                   alt="TSUMUGITE"
                   fill
-                  className="object-cover transition-transform duration-500 hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                 className="object-contain transition-transform duration-500 hover:scale-105"
+                  sizes="(max-width: 400px) 100vw, 50vw"
                   loading="lazy"
                 />
               </div>

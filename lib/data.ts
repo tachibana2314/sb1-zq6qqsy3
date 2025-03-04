@@ -7,7 +7,7 @@ export const projects: Project[] = [
     location: "北九州市小倉南区",
     date: "2023/11",
     imageUrl: "/images/works/16/mv.webp",
-    category: "店舗・カフェ&ギャラリー",
+    category: "カフェ&ギャラリー",
     description: "",
     images: [
       "/images/works/16/1.webp",
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     location: "福岡市中央区",
     date: "2024/08",
     imageUrl: "/images/works/15/mv.webp",
-    category: "店舗・アパレル",
+    category: "アパレル",
     description: "",
     images: [
       "/images/works/15/1.webp",
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     location: "福岡市中央区",
     date: "2024/06",
     imageUrl: "/images/works/14/mv.webp",
-    category: "店舗・美容室",
+    category: "美容室",
     description: "",
     images: [
       "/images/works/14/1.webp",
@@ -66,7 +66,7 @@ export const projects: Project[] = [
     location: "福岡市東区",
     date: "2023/12",
     imageUrl: "/images/works/13/mv.webp",
-    category: "店舗・弁当店",
+    category: "弁当店",
     description: "",
     images: [
       "/images/works/13/1.webp",
@@ -80,7 +80,7 @@ export const projects: Project[] = [
     location: "福岡市中央区",
     date: "2023/11",
     imageUrl: "/images/works/12/mv.webp",
-    category: "店舗・美容室",
+    category: "美容室",
     description: "",
     images: [
       "/images/works/12/1.webp",
@@ -101,7 +101,7 @@ export const projects: Project[] = [
     location: "沖縄県中頭郡",
     date: "2023/06",
     imageUrl: "/images/works/10/mv.webp",
-    category: "店舗・アパレル",
+    category: "アパレル",
     description: "",
     images: [
       "/images/works/10/1.webp",
@@ -123,7 +123,7 @@ export const projects: Project[] = [
     location: "行橋市大橋",
     date: "2023/04",
     imageUrl: "/images/works/9/mv.webp",
-    category: "店舗・雑貨屋",
+    category: "雑貨屋",
     description: "",
     images: [
       "/images/works/9/1.webp",
@@ -141,7 +141,7 @@ export const projects: Project[] = [
     location: "糟屋郡粕屋町",
     date: "2022/09",
     imageUrl: "/images/works/8/mv.webp",
-    category: "店舗・アパレル",
+    category: "アパレル",
     description: "",
     images: [
       "/images/works/8/1.webp",
@@ -160,7 +160,7 @@ export const projects: Project[] = [
     location: "北九州市小倉北区",
     date: "2022/05",
     imageUrl: "/images/works/7/mv.webp",
-    category: "店舗・アパレル",
+    category: "アパレル",
     description: "",
     images: [
       "/images/works/7/1.webp",
@@ -176,7 +176,7 @@ export const projects: Project[] = [
     location: "築上郡上毛町",
     date: "2022/1",
     imageUrl: "/images/works/6/mv.webp",
-    category: "店舗・アジア料理店",
+    category: "アジア料理店",
     description: "",
     images: [
       "/images/works/6/1.webp",
@@ -191,7 +191,7 @@ export const projects: Project[] = [
     location: "福岡市中央区",
     date: "2021/10",
     imageUrl: "/images/works/5/mv.webp",
-    category: "店舗・居酒屋",
+    category: "居酒屋",
     description: "",
     images: [
       "/images/works/5/1.webp",
@@ -209,7 +209,7 @@ export const projects: Project[] = [
     location: "福岡市中央区",
     date: "2021/09",
     imageUrl: "/images/works/4/mv.webp",
-    category: "店舗・居酒屋",
+    category: "居酒屋",
     description: "",
     images: [
       "/images/works/4/1.webp",
@@ -218,11 +218,11 @@ export const projects: Project[] = [
   },
   {
     id: "3",
-    title: "ROJIURA BAKERY 百道浜店",
+    title: "ROJIURA BAKERY TNC 百道浜店",
     location: "福岡市早良区",
     date: "2021/06",
     imageUrl: "/images/works/3/mv.webp",
-    category: "店舗・ベーカリー",
+    category: "ベーカリー",
     description: "",
     images: [
       "/images/works/3/1.webp",
@@ -238,7 +238,7 @@ export const projects: Project[] = [
     location: "福岡市中央区",
     date: "2021/04",
     imageUrl: "/images/works/2/mv.webp",
-    category: "店舗・アパレル",
+    category: "アパレル",
     description: "",
     images: [
       "/images/works/2/1.webp",
@@ -261,7 +261,7 @@ export const projects: Project[] = [
     location: "福岡市東区",
     date: "2021/02",
     imageUrl: "/images/works/1/mv.webp",
-    category: "店舗・居酒屋",
+    category: "居酒屋",
     description: "",
     images: [
       "/images/works/1/1.webp",

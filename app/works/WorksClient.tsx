@@ -35,9 +35,9 @@ export function WorksClient({ projects }: WorksClientProps) {
           className="text-center mb-12 md:mb-16"
         >
           <h1 className="text-4xl md:text-5xl font-light mb-4 md:mb-8">WORKS</h1>
-          <p className="text-gray-600 text-sm md:text-base">
+          {/* <p className="text-gray-600 text-sm md:text-base">
             これまでに手がけた住まいづくりの事例をご紹介します
-          </p>
+          </p> */}
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {visibleProjects.map((project) => (

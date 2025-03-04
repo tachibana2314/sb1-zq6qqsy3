@@ -198,17 +198,18 @@ export const Hero = () => {
                 ease: "easeOut"
               }}
             >
-              理想の暮らしをデザインする
+              あなたを表現
             </motion.p>
             
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: "100%" }}
               transition={{ delay: 1.4, duration: 1.2, ease: "easeInOut" }}
-              className="h-px bg-white/60 my-4 mx-auto max-w-[180px]"
+              className="h-px my-4 mx-auto max-w-[180px]"
+              // className="h-px bg-white/60 my-4 mx-auto max-w-[180px]"
             />
             
-            <motion.p 
+            {/* <motion.p 
               className="text-base md:text-lg text-white/90"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -219,7 +220,7 @@ export const Hero = () => {
               }}
             >
               新築・リフォーム・リノベーション
-            </motion.p>
+            </motion.p> */}
           </motion.div>
         </div>
       </div>
